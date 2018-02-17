@@ -4,6 +4,7 @@ Missouri State University, Spring 2018
 File: hw02.py
 Due Date: 24:59 Friday 16 February 2018
 """
+import string
 
 
 def jump_it(board: list) -> int:
@@ -12,6 +13,7 @@ def jump_it(board: list) -> int:
     :param board: list representing playing board
     :return: The cheapest cost to play the game is returned.
     """
+
     # TODO: Implement me correctly.
     return 0
 
@@ -22,6 +24,18 @@ def read_boards_from_file(file_name: str) -> list:
     :param file_name: the name of the file containing board data
     :return: A list of game boards is returned.
     """
+    f=open(file_name,'r')
+    choices = []
+    temp = []
+    while True:
+        line = f.readline()
+        if line == "":
+            break
+        for index in range (len(line)):
+            temp.append(line[index])
+        choices = [u.translate({ord(i): None for i in string.punctuation}) for u in temp]
+        
+
     # TODO: Implement me correctly. Notice you'll be returning a list of boards, i.e., a 2D-list.
     return [[]]
 
